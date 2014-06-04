@@ -1,0 +1,3 @@
+
+import Data.Acid            ( AcidState, Query, Update
+                            , makeAcidic, openLocalState )

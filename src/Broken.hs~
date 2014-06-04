@@ -1,0 +1,3 @@
+module Broken where
+
+import Broken.Internal
