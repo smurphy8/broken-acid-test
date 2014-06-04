@@ -16,9 +16,10 @@ Library
   Exposed-Modules:      Broken
   Other-Modules:        Broken.Internal
   Build-Depends:        base >= 4 && < 5 
-                      , acid-state
                       , safecopy <= 0.8.3
                       , mtl
+                      , acid-state >= 0.12.2.1 
+                      , unix
                       , system-filepath
                       , system-fileio
 
@@ -31,6 +32,7 @@ Test-Suite spec
   Main-Is:              Spec.hs
   Build-Depends:        base
                       , hspec
+                      , unix
                       , system-filepath
                       , system-fileio
 
@@ -41,9 +43,9 @@ Executable acidStress
    ghc-options:        -threaded -O2 -rtsopts -Wall
    HS-Source-Dirs:     src
    build-depends:       base,
-                        acid-state,
                         safecopy <= 0.8.3
-                      , acid-state
+                      , unix
+                      , acid-state >= 0.12.2.1 
                       , safecopy <= 0.8.3
                       , mtl
                       , system-filepath
