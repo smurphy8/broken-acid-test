@@ -9,3 +9,8 @@ cabal-dev
 *stress*
 .cabal-sandbox/
 cabal.sandbox.config
+.virtualenv
+.hsenv
+.cabal-sandbox/
+cabal.sandbox.config
+cabal.config

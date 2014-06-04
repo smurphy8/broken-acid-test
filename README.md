@@ -17,5 +17,4 @@ cabal configure --enable-tests && cabal build && cabal test
 ```
 
 ## Contributing
-
-TODO: Write contribution instructions here
+Testing the openLocalStateFrom problem in acid-state
