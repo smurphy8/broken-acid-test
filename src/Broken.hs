@@ -16,6 +16,7 @@ import Control.Exception    ( bracket )
 import Control.Monad        ( msum )
 import Control.Monad.Reader ( ask )
 import Control.Monad.State  ( get, put )
+import Control.Concurrent
 import Data.Typeable
 import Data.Acid.Advanced   ( query', update' )
 import Data.Acid.Local      ( createCheckpointAndClose )
@@ -50,5 +51,9 @@ openABunchOfStates n = do
   let aBunchOfStates = fmap show [1 .. n]
   wd <- getWorkingDirectory 
   setWorkingDirectory (wd </> "stress")
-  traverse (flip openLocalStateFrom initialCounterState) aBunchOfStates
+  traverse stateOpenFcn aBunchOfStates
   setWorkingDirectory wd
+  where
+    stateOpenFcn fn = do
+      threadDelay (1000)
+      openLocalStateFrom fn initialCounterState
